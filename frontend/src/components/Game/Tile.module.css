@@ -1,0 +1,98 @@
+.tile {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  transform-style: preserve-3d;
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.compact {
+  width: 44px;
+  height: 44px;
+}
+
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--border-empty);
+  /* Cada face se vira individualmente */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.compact .front,
+.compact .back {
+  font-size: 1.35rem;
+}
+
+/* Back começa virado — vai de 180° até 360° (=0°) */
+.back {
+  transform: rotateX(180deg);
+  border-color: transparent;
+}
+
+.CORRECT {
+  background: var(--color-correct);
+  color: var(--color-on-colored);
+  border-color: var(--color-correct);
+}
+.PRESENT {
+  background: var(--color-present);
+  color: var(--color-on-colored);
+  border-color: var(--color-present);
+}
+.ABSENT {
+  background: var(--color-absent);
+  color: var(--color-on-colored);
+  border-color: var(--color-absent);
+}
+.tbd {
+  border-color: var(--border-filled);
+}
+.empty {
+  border-color: var(--border-empty);
+}
+
+.filled .front {
+  border-color: var(--border-filled);
+  animation: pop 0.1s ease-in-out;
+}
+
+/* 
+  Quando isRevealing=true, animamos o CONTAINER de 0° a -180°.
+  - Na primeira metade (0° → -90°): o .front está visível (ainda de frente).
+  - Na segunda metade (-90° → -180°): o .back aparece com a cor do estado.
+  O delay por letra é aplicado via style={{ animationDelay }} no JSX.
+*/
+.revealing {
+  animation: flipContainer 0.5s ease forwards;
+}
+
+@keyframes flipContainer {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}

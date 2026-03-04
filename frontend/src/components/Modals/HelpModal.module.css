@@ -1,0 +1,58 @@
+.text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.text strong {
+  color: var(--text-primary);
+}
+
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hint {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hint strong {
+  color: var(--text-primary);
+}
+
+.exTile {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: 2px solid var(--border-filled);
+  color: var(--text-primary);
+}
+
+.CORRECT {
+  background: var(--color-correct);
+  color: var(--color-on-colored);
+  border-color: var(--color-correct);
+}
+.PRESENT {
+  background: var(--color-present);
+  color: var(--color-on-colored);
+  border-color: var(--color-present);
+}
+.ABSENT {
+  background: var(--color-absent);
+  color: var(--color-on-colored);
+  border-color: var(--color-absent);
+}

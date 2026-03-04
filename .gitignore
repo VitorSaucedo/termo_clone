@@ -1,0 +1,79 @@
+# ─── Sistema operacional ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ─── IDEs e editores ──────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.launch
+*.swp
+*.swo
+*~
+
+# ─── Backend — Java / Maven / Spring Boot ─────────────────────────────────────
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+hs_err_pid*
+replay_pid*
+
+# Spring Boot devtools restart trigger
+.reloadtrigger
+
+# ─── Backend — configurações com segredos ─────────────────────────────────────
+**/application-local.properties
+**/application-local.yml
+**/application-*.properties.bak
+**/application-secrets.properties
+
+# ─── Frontend — Node / npm ────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+package-lock.json.bak
+
+# ─── Frontend — Vite / build ──────────────────────────────────────────────────
+dist/
+dist-ssr/
+*.local
+
+# ─── Frontend — variáveis de ambiente ────────────────────────────────────────
+.env.local
+.env.*.local
+
+# ─── Frontend — TypeScript ────────────────────────────────────────────────────
+*.tsbuildinfo
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
+log/
+
+# ─── Cobertura de testes ──────────────────────────────────────────────────────
+coverage/
+.nyc_output/

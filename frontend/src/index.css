@@ -1,0 +1,86 @@
+/* ─── Google Fonts — Mono display + body ────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap");
+
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+:root {
+  /* Fontes */
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Paleta — tema escuro estilo terminal */
+  --bg: #0f1117;
+  --bg-secondary: #161b27;
+  --modal-bg: #1a2030;
+
+  --text-primary: #e8eaf0;
+  --text-secondary: #9ba3b5;
+  --text-muted: #5a6478;
+
+  --border-empty: #2a3045;
+  --border-filled: #4a5568;
+
+  --key-bg: #2a3348;
+  --key-color: #c8cedc;
+
+  /* Acento verde-limão */
+  --accent: #b5f036;
+  --accent-glow: rgba(181, 240, 54, 0.35);
+
+  /* Estados das letras */
+  --color-correct: #4a7c59; /* verde escuro elegante */
+  --color-present: #b5893a; /* âmbar */
+  --color-absent: #3a3f52; /* cinza azulado */
+  --color-on-colored: #f0f2f5;
+
+  /* Toast */
+  --toast-bg: var(--text-primary);
+  --toast-color: var(--bg);
+}
+
+/* ─── Reset & base ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  /* Textura de ruído sutil para dar profundidade */
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(181, 240, 54, 0.06) 0%,
+      transparent 60%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-filled);
+  border-radius: 3px;
+}
+
+/* ─── Focus visible ─────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

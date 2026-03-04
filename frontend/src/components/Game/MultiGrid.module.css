@@ -1,0 +1,67 @@
+.container {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Dueto: 2 colunas lado a lado */
+.DUETO {
+  grid-template-columns: 1fr 1fr;
+  max-width: 500px;
+}
+
+/* Quarteto: 4 colunas lado a lado */
+.QUARTETO {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1040px; /* Aumentado para caber 4 grids de ~240px cada */
+}
+
+.grid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--border-empty);
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.grid.WON {
+  border-color: var(--color-correct);
+}
+.grid.LOST {
+  border-color: var(--color-absent);
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.WON .badge {
+  color: var(--color-correct);
+}
+.LOST .badge {
+  color: var(--text-muted);
+}
+
+/* Tiles compactos para caber nos grids menores */
+@media (max-width: 480px) {
+  .DUETO,
+  .QUARTETO {
+    max-width: 100%;
+    gap: 8px;
+  }
+}

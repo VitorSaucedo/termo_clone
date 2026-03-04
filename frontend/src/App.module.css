@@ -1,0 +1,91 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 1200px; /* Limite estendido para o Quarteto */
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--text-primary);
+  margin: 0;
+  /* Efeito sutil de brilho no título */
+  text-shadow: 0 0 24px var(--accent-glow);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+.iconBtn:hover {
+  color: var(--text-primary);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-empty);
+  flex-shrink: 0;
+}
+
+/* ─── Main ───────────────────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────────── */
+.footer {
+  padding: 12px 0 20px;
+  flex-shrink: 0;
+}
+
+/* ─── Loading spinner ────────────────────────────────────────────────────── */
+.loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.loader::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-empty);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
