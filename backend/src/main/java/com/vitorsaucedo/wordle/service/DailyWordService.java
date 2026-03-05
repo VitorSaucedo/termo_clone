@@ -21,7 +21,7 @@ public class DailyWordService {
 
     private final DailyWordRepository dailyWordRepository;
 
-    @Cacheable(cacheNames = "palavraDoDia", key = "#mode.name() + '::' + #language")
+    @Cacheable(cacheNames = "palavraDoDia", key = "#mode.name() + '::' + #language + '::' + T(java.time.LocalDate).now()")
     public DailyWord getTodaysWord(GameMode mode, String language) {
         log.debug("Buscando palavra do dia no banco para {} [{}] modo {}", LocalDate.now(), language, mode);
         return dailyWordRepository
@@ -29,7 +29,7 @@ public class DailyWordService {
                 .orElseThrow(() -> new DailyWordNotFoundException(LocalDate.now(), language));
     }
 
-    @Cacheable(cacheNames = "palavrasDoDia", key = "#mode.name() + '::' + #language")
+    @Cacheable(cacheNames = "palavrasDoDia", key = "#mode.name() + '::' + #language + '::' + T(java.time.LocalDate).now()")
     public List<DailyWord> getTodaysWords(GameMode mode, String language) {
         log.debug("Buscando palavras do dia no banco para {} [{}] modo {}", LocalDate.now(), language, mode);
         List<DailyWord> words = dailyWordRepository
