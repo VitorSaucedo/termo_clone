@@ -9,6 +9,7 @@ import { StatsModal } from "./components/Modals/StatsModal";
 import { HelpModal } from "./components/Modals/HelpModal";
 import { Header } from "./components/Layout/Header.tsx";
 import { MultiModePage } from "./pages/MultiModePage.tsx";
+import { WakeUpScreen } from "./components/UI/WakeUpScreen"; // 👈 novo
 import styles from "./App.module.css";
 
 function ClassicPage() {
@@ -25,8 +26,6 @@ function ClassicPage() {
     initGame();
   }, []);
 
-  // Agita a linha sempre que o toast for classificado como erro de input
-  // (palavra curta, palavra inválida). Elimina a lista de strings hardcoded.
   useEffect(() => {
     if (toast && toastIsError) {
       setShakeRow(currentRow);
@@ -54,19 +53,25 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className={styles.app}>
-        <Header onStats={openStats} onHelp={openHelp} />
-        <div className={styles.divider} />
+      {/* WakeUpScreen envolve tudo: só exibe o app quando o backend estiver UP */}
+      <WakeUpScreen>
+        <div className={styles.app}>
+          <Header onStats={openStats} onHelp={openHelp} />
+          <div className={styles.divider} />
 
-        <Routes>
-          <Route path="/" element={<ClassicPage />} />
-          <Route path="/dueto" element={<MultiModePage mode="DUETO" />} />
-          <Route path="/quarteto" element={<MultiModePage mode="QUARTETO" />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<ClassicPage />} />
+            <Route path="/dueto" element={<MultiModePage mode="DUETO" />} />
+            <Route
+              path="/quarteto"
+              element={<MultiModePage mode="QUARTETO" />}
+            />
+          </Routes>
 
-        <StatsModal />
-        <HelpModal />
-      </div>
+          <StatsModal />
+          <HelpModal />
+        </div>
+      </WakeUpScreen>
     </BrowserRouter>
   );
 }
